@@ -21,13 +21,14 @@ import java.util.List;
  * Created by zhouwei on 17/5/31.
  */
 
-public class MZModeBannerFragment extends Fragment{
-    public static final int []RES = new int[]{R.mipmap.image5,R.mipmap.image2,R.mipmap.image3,R.mipmap.image4,R.mipmap.image6,R.mipmap.image7,R.mipmap.image8};
+public class MZModeBannerFragment extends Fragment {
+
+    public static final int[] RES = new int[]{R.mipmap.image5, R.mipmap.image2, R.mipmap.image3, R.mipmap.image4, R.mipmap.image6, R.mipmap.image7, R.mipmap.image8};
     private MZBannerView mMZBanner;
     private MZBannerView mNormalBanner;
 
 
-    public static MZModeBannerFragment newInstance(){
+    public static MZModeBannerFragment newInstance() {
         return new MZModeBannerFragment();
     }
 
@@ -37,11 +38,11 @@ public class MZModeBannerFragment extends Fragment{
         mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener() {
             @Override
             public void onPageClick(View view, int position) {
-                Toast.makeText(getContext(),"click page:"+position,Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "click page:" + position, Toast.LENGTH_LONG).show();
             }
         });
         List<Integer> list = new ArrayList<>();
-        for(int i=0;i<RES.length;i++){
+        for (int i = 0; i < RES.length; i++) {
             list.add(RES[i]);
         }
         mMZBanner.setIndicatorVisible(false);
@@ -66,10 +67,11 @@ public class MZModeBannerFragment extends Fragment{
 
     public static class BannerViewHolder implements MZViewHolder<Integer> {
         private ImageView mImageView;
+
         @Override
         public View createView(Context context) {
             // 返回页面布局文件
-            View view = LayoutInflater.from(context).inflate(R.layout.banner_item,null);
+            View view = LayoutInflater.from(context).inflate(R.layout.banner_item, null);
             mImageView = (ImageView) view.findViewById(R.id.banner_image);
             return view;
         }
@@ -80,10 +82,11 @@ public class MZModeBannerFragment extends Fragment{
             mImageView.setImageResource(data);
         }
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main,null);
+        View view = inflater.inflate(R.layout.activity_main, null);
         initView(view);
         return view;
     }

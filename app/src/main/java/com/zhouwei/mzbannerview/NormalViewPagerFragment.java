@@ -24,24 +24,25 @@ import static com.zhouwei.mzbannerview.MZModeBannerFragment.RES;
  */
 
 public class NormalViewPagerFragment extends Fragment {
+
     private MZBannerView mMZBannerView;
     private MZBannerView mNormalViewPager;
 
-    public static NormalViewPagerFragment newInstance(){
+    public static NormalViewPagerFragment newInstance() {
         return new NormalViewPagerFragment();
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.normal_view_pager_layout,null);
+        View view = inflater.inflate(R.layout.normal_view_pager_layout, null);
         initView(view);
         return view;
     }
 
-    private void initView(View view){
+    private void initView(View view) {
         mMZBannerView = (MZBannerView) view.findViewById(R.id.mz_view_pager);
         mNormalViewPager = (MZBannerView) view.findViewById(R.id.normal_viewPager);
-
 
 
         mMZBannerView.setPages(mockData(), new MZHolderCreator<ViewPagerHolder>() {
@@ -51,7 +52,7 @@ public class NormalViewPagerFragment extends Fragment {
             }
         });
 
-        mNormalViewPager.setIndicatorRes(R.drawable.dot_unselect_image,R.drawable.dot_select_image);
+        mNormalViewPager.setIndicatorRes(R.drawable.dot_unselect_image, R.drawable.dot_select_image);
         mNormalViewPager.setPages(mockData(), new MZHolderCreator<ViewPagerHolder>() {
             @Override
             public ViewPagerHolder createViewHolder() {
@@ -66,9 +67,10 @@ public class NormalViewPagerFragment extends Fragment {
         private ImageView mImageView;
         private TextView mTitle;
         private TextView mDesc;
+
         @Override
         public View createView(Context context) {
-            View view = LayoutInflater.from(context).inflate(R.layout.normal_banner_item,null);
+            View view = LayoutInflater.from(context).inflate(R.layout.normal_banner_item, null);
             mImageView = (ImageView) view.findViewById(R.id.normal_banner_image);
             mDesc = (TextView) view.findViewById(R.id.page_desc);
             return view;
@@ -76,15 +78,15 @@ public class NormalViewPagerFragment extends Fragment {
 
         @Override
         public void onBind(Context context, int position, DataEntry data) {
-           mImageView.setImageResource(data.resId);
-           mDesc.setText(data.desc);
+            mImageView.setImageResource(data.resId);
+            mDesc.setText(data.desc);
         }
     }
 
-    private List<DataEntry> mockData(){
+    private List<DataEntry> mockData() {
         List<DataEntry> list = new ArrayList<>();
         DataEntry dataEntry = null;
-        for(int i=0;i<RES.length;i++){
+        for (int i = 0; i < RES.length; i++) {
             dataEntry = new DataEntry();
             dataEntry.resId = RES[i];
             dataEntry.desc = "The time you enjoy wasting , is not wasted.";

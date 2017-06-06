@@ -5,7 +5,9 @@ package com.zhouwei.mzbannerview;
  */
 
 public class DataEntry {
+
     public int resId;
     public String title;
     public String desc;
+
 }

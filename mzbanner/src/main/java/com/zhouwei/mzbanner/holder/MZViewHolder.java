@@ -9,7 +9,8 @@ import android.view.View;
 
 public interface MZViewHolder<T> {
     /**
-     *  创建View
+     * 创建View
+     *
      * @param context
      * @return
      */
@@ -17,6 +18,7 @@ public interface MZViewHolder<T> {
 
     /**
      * 绑定数据
+     *
      * @param context
      * @param position
      * @param data
